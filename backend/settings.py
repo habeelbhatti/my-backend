@@ -127,3 +127,9 @@ REST_FRAMEWORK = {
         "rest_framework.authentication.BasicAuthentication",
     ]
 }
+DATABASES = {
+    "default": dj_database_url.config(
+        default=os.environ.get("DATABASE_URL", "postgres://postgres:root@localhost:5432/velixisdb"),
+        conn_max_age=600,
+    )
+}
